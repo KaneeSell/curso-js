@@ -6,10 +6,12 @@ function jurosSimples(capital, juros, temp){
 function jurosComposto(capital, juros, temp){
     let calc = 0
     juros = juros / 100
-    for (let i = 1; temp >= i; i++){
-        console.log(calc)
-        calc = calc + (juros + i)
+        if(temp > 1){
+            let calc = juros
+            for (let i = temp; i > 1; i--)
+                calc = (juros + 1) * temp
         }
+        console.log(calc)
     total = capital * (juros * temp)
     return 'Capital = R$' + capital + ' \nJuros Composto = R$' + total + '\nTotal = R$' + (total + capital)
 }
