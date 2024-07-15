@@ -6,10 +6,10 @@ function desempenhoBasquete(pontuacaoJogos){
     console.log(`Total de jogos = ${pontuacaoJogos.length}`)
     // console.log(pontuacaoJogos.toString().replace(/pontuação/g, ""))
     for( let i = 0; i < pontuacaoJogos.length; i++){
-        pontosInt.push(Number(pontuacaoJogos[i]))
+        pontosInt[i] = Number(pontuacaoJogos[i])
         console.log(pontosInt[i])
         console.log(typeof pontosInt[i])
-        // let totalPontos = totalPontos + pontosInt[i]
+        let totalPontos = totalPontos + pontosInt[i]
     }
 }
 desempenhoBasquete(resultado)
