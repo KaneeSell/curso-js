@@ -18,4 +18,3 @@ function Bhaskara(ax2, bx, c) {
 console.log(Bhaskara(3, -5, 12))
 console.log(Bhaskara(1, -8, 16))
 console.log(Bhaskara(1, -3, -54))
-console.log(Bhaskara(2, -5, 3))
