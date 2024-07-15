@@ -1,5 +1,6 @@
-function elevado(num1, num2) {
-    let total = Math.pow(num1, num2)
+function elevado(base, expoente) {
+    let total = Math.pow(base, expoente)
+    total = base ** expoente // Também pode ser feito dessa forma
     return total
 }
 
