@@ -4,16 +4,20 @@ function classificarAluno(nota){
     let auxNota = 0
     if (nota >= 0) if (nota <= 100){
         if (nota >= 40){
-            aux = nota / 5
-            aux = aux.replace(".", 99)
-            if(aux > 20){
-                aux = nota
-            for(let i = 0; i < 100; i = i + 5){69 
-                if(){}
+            function arredondar(valor) {
+                const resto = valor % 5;
+                if (resto === 0) {
+                    return valor;
+                } else if (resto <= 2) {
+                    return valor;
+                } else if (resto <= 4) {
+                    return valor + (5 - resto);
+                }
             }
-            }
+            console.log(`Nota Final: ${arredondar(nota)}`)
             console.log('Aprovado!')
         } else {
+            console.log(`Nota Final: ${nota}`)
             console.log('Reprovado!')
         }
     } else {
@@ -22,4 +26,12 @@ function classificarAluno(nota){
         console.log('Nota Inválida!')
     }
 }
-classificarAluno(40)
+classificarAluno(11)
+classificarAluno(22)
+classificarAluno(33)
+classificarAluno(44)
+classificarAluno(55)
+classificarAluno(66)
+classificarAluno(77)
+classificarAluno(88)
+classificarAluno(99)
