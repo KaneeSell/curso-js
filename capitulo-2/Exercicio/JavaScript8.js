@@ -32,6 +32,5 @@ function desempenhoBasquete(pJogos){
     }
     }
     console.log(`Records = ${records}\nPiores = ${piores}`)
-
 }
 desempenhoBasquete('pontuação10 pontuação20 pontuação11 pontuação9 pontuação15 pontuação10')
