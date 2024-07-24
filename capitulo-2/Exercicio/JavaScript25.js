@@ -1,2 +1,2 @@
-function contador(){for(let i = 1; i < 51; i++){console.log(i)}}
+function contador(){for(let i = 1; i <= 50; i++){console.log(i)}}
 contador()

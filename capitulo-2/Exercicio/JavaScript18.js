@@ -1,6 +1,9 @@
 let num;
 const escrevaNum = (num) =>{
     switch(num){
+        case 0:
+            console.log('Zero')
+            break;
         case 1:
             console.log('Um')
             break;    
@@ -35,6 +38,6 @@ const escrevaNum = (num) =>{
             console.log('Número fora do intervalo!')     
     }
 }
-for(let i = 1; i < 12; i++){
+for(let i = 0; i <= 11; i++){
     escrevaNum(i)
 }

@@ -14,6 +14,6 @@ function media(cod, nota1, nota2, nota3){
                     media = ((nota[2] * 4) + (nota[1] * 3) + (nota[0] * 3) / 3) / 10
                     break;
     }
-console.log(`Cod. Aluno = ${cod}\nNotas = ${nota}\nMédia = ${media}`)
+console.log(`Cod. Aluno = ${cod}\nNotas = ${nota}\nMédia = ${media}\nSituação = ${media <= 5 ? 'Aprovado!' : 'Reprovado!'}`)
 }
 media(1, 6, 7.5, 2)
