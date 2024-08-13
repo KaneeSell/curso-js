@@ -45,7 +45,9 @@ function calcularDias(data){
         let x = 0;
         for(let loop = true; loop == true; ){
             if(ano != strNiver[2]){
-                if(ano % 4 == 0){ano--; x += 366}
+                if(ano % 4 == 0){
+                    ano--; x += 366
+                }
                 else{ano--; x += 365}
             }
             else{loop = false}
