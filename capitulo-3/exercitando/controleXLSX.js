@@ -2,39 +2,41 @@ const XLSX = require('xlsx');//Importando biblioteca para dentro do código
 const workbook = XLSX.readFile('financas.xlsx');//caminho para o arquivo exccel.xlsx
 
 const worksheet = workbook.Sheets[workbook.SheetNames[0]];//iniciando a manipulação de arquivos XLSX
-const entradasTotal = worksheet['B28'].v;//local no exccel que deseja procurar
-const saidasTotal = worksheet['D28'].v;
+const entradasTotal = worksheet['E4'].v;//local no exccel que deseja procurar
+const saidasTotal = worksheet['E6'].v;
 const total = worksheet['E2'].v;
+
+let nomeEntrada = []
+let valorEntrada = []
+let nomeSaida = []
+let valorSaida = []
+
 function Entradas() {
-    nome = []
-    valor = []
     for(let i = 2;i < 28; i++){
         let auxNome = 'A' + i
         let auxValor = 'B' + i
         if(worksheet[auxNome] != undefined){
-        nome.push(worksheet[auxNome].v)}
+        nomeEntrada.push(worksheet[auxNome].v)}
         if(worksheet[auxValor] != undefined){
-        valor.push(worksheet[auxValor].v)
+        valorEntrada.push(worksheet[auxValor].v)
     }
     }
-    for(let i = 0; i < nome.length; i++){
-        console.log(`${nome[i]} = ${valor[i]}`)
+    for(let i = 0; i < nomeEntrada.length; i++){
+        console.log(`${nomeEntrada[i]} = ${valorEntrada[i]}`)
     }
 }
 function Saidas() {
-    nome = []
-    valor = []
     for(let i = 2;i < 28; i++){
         let auxNome = 'C' + i
         let auxValor = 'D' + i
         if(worksheet[auxNome] != undefined){
-        nome.push(worksheet[auxNome].v)}
+        nomeSaida.push(worksheet[auxNome].v)}
         if(worksheet[auxValor] != undefined){
-        valor.push(worksheet[auxValor].v)
+        valorSaida.push(worksheet[auxValor].v)
     }
     }
-    for(let i = 0; i < nome.length; i++){
-        console.log(`${nome[i]} = ${valor[i]}`)
+    for(let i = 0; i < nomeSaida.length; i++){
+        console.log(`${nomeSaida[i]} = ${valorSaida[i]}`)
     }
 }
 
