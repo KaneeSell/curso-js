@@ -16,5 +16,6 @@ const produtos = [
 //Retornar produto acima de 2mil e fragil
 const caros = produto => produto.preco >= 500
 const fragil = produto => produto.fragil
-const resultado = produtos.filter2(caros).filter2(fragil)
+const nome = produto => produto.nome == 'Notebook'
+const resultado = produtos.filter2(nome)
 console.log(resultado)

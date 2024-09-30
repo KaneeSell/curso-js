@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input</title>
+<style>
+@charset "UTF-8";
+body{
+    font: normal 900 1em 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: linear-gradient(145deg, #100421, #2A124A 10%, #5e398f, #AA8CD0);
+    background-size: 100% 120%;
+    background-position: center;
+    font-size: 30px;
+    text-shadow: 2px 2px 8px #000000c7;
+}
+h1,h2{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    font-style: normal;
+    margin: 10px;
+}
+div{
+    text-align: center;
+}
+.painel{
+    color: white;
+    border-radius: 10px;
+    background-image: linear-gradient(145deg, #291446, #2A124A 10%, #5e398f, #7958a3);
+    padding: 20px;
+    background-clip: padding-box;
+    box-shadow: 0 0 10px white;
+    text-align: center;
+}
+.botao {
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #7958a3;
+    padding: 0px 4px 0px 4px;
+    background-clip: padding-box;
+    cursor: pointer;
+    line-height: 30px;
+    text-decoration: none;
+    margin: 0px 0px 20px 0px;
+    display: inline-flex;
+}.botao:hover {
+    background-color: #AA8CD0;
+}.botao:active {
+    background-color: #5e398f;
+}
+    </style>
+</head>
+<body>
+    <div class="painel">
+        <button type="button" class="botao" id="validadorCPF" onclick=" function troca(){
+            document.getElementById('validadorCPF').innerHTML = '<style>display: none</style>'; document.getElementById('horario').innerHTML = '<style></style>'
+        }">ValidadorCPF</button>
+        <button type="button" class="botao" id="horario">Horario</button>
+        <form id="diver">
+            <h1>Validador CPF</h1>
+            <label for="textoCpPF">Digite o CPF:</label>
+            <input type="text" id="nome" maxlength="14" oninput="mascararCPF()">
+            <input type="submit" value="Confirmar">
+            <p id="log"></p>
+        </form>
+    </div>
+    <br>
+    <div class="painel">
+        <button type="button" onclick="document.getElementById('demo').innerHTML = Date()">Click-me!</button>
+        <p id="demo"></p>
+    </div>
+</body>
+<script>
+    var nome = document.getElementById('nome')
+    var logs = document.querySelector('log')
+    document.getElementById("diver").addEventListener('submit', function(event) {
+        event.preventDefault();
+        vnome = nome.value;
+        nome.value = '';
+        document.getElementById("log").innerText = `CPF: ${vnome}\n${validarCPF(vnome)}`
+    })
+    
+    function validarCPF(cpfOrigem){
+    let cpf = cpfOrigem
+    let valido = true
+    cpf = cpf.replace(/[.,-]/g, '')
+    cpf = cpf.split('')
+    Object.entries(cpf).forEach(e => {if(Number(e[1])){}else{if(e[1] == 0){}else{valido = false}}})
+    if(cpf.length != 11){valido = false}
+    let calculoCPF = []
+    let calculoCPF2 = []
+    let soma = 0
+    let auxiliar = [11, 10, 9, 8, 7, 6, 5, 4, 3, 2]
+    for(let i = 0; i< cpf.length;i++){cpf[i] = cpf[i] * 1;calculoCPF[i] = cpf[i];calculoCPF2[i] = cpf[i]}
+    if(valido){
+        for(let i = 0; i <= 8;i++){calculoCPF[i] = auxiliar[i+1] * calculoCPF[i]}
+        for(let i = 0; i <= 8;i++){soma += calculoCPF[i]}
+        soma = 11 - (soma % 11)
+        if(soma >= 10){soma = 0}
+        if(soma != cpf[9]){valido = false}
+        for(let i = 0; i <= 9;i++){calculoCPF2[i] = auxiliar[i] * calculoCPF2[i]}
+        soma = 0
+        for(let i = 0; i <= 9;i++){soma += calculoCPF2[i]}
+        soma = 11 - (soma % 11)
+        if(soma >= 10){soma = 0}
+        if(soma != cpf[10]){valido = false}
+    }
+    return `Valido? ${valido? 'Sim':'Não'}`
+    }
+    function aplicarMascaraCPF(cpf) {
+            cpf = cpf.replace(/[^\d]+/g, '');
+            return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+        }
+    function mascararCPF() {
+        nome.value = aplicarMascaraCPF(nome.value);
+    }
+</script>
+</html>
