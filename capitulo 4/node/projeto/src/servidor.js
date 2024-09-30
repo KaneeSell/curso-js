@@ -2,7 +2,6 @@ const porta = 3003
 
 const express = require('express')
 const app = express()
-const bobyParser = require('body-parser')
 const bancoDeDados = require('./bancoDeDados')
 const bodyParser = require('body-parser')
 
